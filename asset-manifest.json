@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/UlbiTv-react-hooks-course/static/css/main.31d6cfe0.css",
+    "main.js": "/UlbiTv-react-hooks-course/static/js/main.b2deb869.js",
+    "static/js/787.9b619ab1.chunk.js": "/UlbiTv-react-hooks-course/static/js/787.9b619ab1.chunk.js",
+    "index.html": "/UlbiTv-react-hooks-course/index.html",
+    "main.b2deb869.js.map": "/UlbiTv-react-hooks-course/static/js/main.b2deb869.js.map",
+    "787.9b619ab1.chunk.js.map": "/UlbiTv-react-hooks-course/static/js/787.9b619ab1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.b2deb869.js"
+  ]
+}
