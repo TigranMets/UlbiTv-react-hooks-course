@@ -1,30 +1,29 @@
-import { useState } from 'react';
+import axios from 'axios';
+import useRequest from './hooks/useRequest';
 import './App.css';
-// import List from './components/List';
-import useDebounce from './hooks/useDebounce';
-// import Hover from './components/Hover';
-// import useHover from './hooks/useHover';
 
 function App() {
 
-  const [value, setValue] = useState('');
-  const debouncedSearch = useDebounce(search, 2000);
-  
-  const onChange = (e) => {
-    setValue(e.target.value);
-    debouncedSearch(e.target.value);
+  const [todos, isLoading, error,] = useRequest(fetchTodos);
+
+  function fetchTodos() {
+    return axios.get(`https://jsonplaceholder.typicode.com/todos`)
   };
 
-  function search(query) {
-    fetch(`https://jsonplaceholder.typicode.com/todos?query=` + query)
-      .then(response => response.json())
-      .then(json => console.log(json)
-      );
-  };
-  
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  }
+
+  if (error) {
+    return <h1>Error</h1>
+  }
+
   return (
     <div className='App'>
-      <input value={value} onChange={onChange} />
+      {todos && todos.map(todo => <div key={todo.id} style={{ padding: 30, border: '2px solid black' }}>
+        <span>{todo.id}.</span>
+        <span> {todo.title}</span>
+      </div>)}
     </div>
   );
 };
